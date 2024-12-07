@@ -5,11 +5,20 @@ import React, { createContext,useState } from 'react'
 const FaqsProvider = ({children}) => {
         // State for each FAQ toggle
         const [activeFaq, setActiveFaq] = useState(null);
+        const [theme, setTheme] = useState('dark')
 
         // Function to handle toggling of a specific FAQ
         const handleToggle = (index) => {
             setActiveFaq(activeFaq === index ? null : index);
         };
+
+        const handleThemeToggle = () => {
+            if(theme === 'light') {
+                setTheme('dark')
+            }else {
+                setTheme('light')
+            }
+        }
     
         const faqsData = [
             {
@@ -35,7 +44,7 @@ const FaqsProvider = ({children}) => {
         ];
     
     return(
-        <FaqsContext.Provider value={{activeFaq, setActiveFaq,handleToggle,faqsData}}>
+        <FaqsContext.Provider value={{activeFaq, setActiveFaq,handleToggle,faqsData,handleThemeToggle,theme,setTheme}}>
             {children}
         </FaqsContext.Provider>
     )
