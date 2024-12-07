@@ -3,7 +3,7 @@ import FaqsMain from './Components/FaqsMain'
 
 export default function App() {
   return (
-    <div>
+    <div className='flex justify-center items-center py-9'>
       <FaqsMain/>
     </div>
   )
